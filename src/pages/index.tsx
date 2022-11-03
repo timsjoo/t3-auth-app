@@ -66,6 +66,8 @@ const AuthShowcase: React.FC = () => {
 };
 
 const Guest: React.FC = () => {
+  const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery();
+  console.log(secretMessage);
   return (
     <main className="container mx-auto py-20 text-center">
       <h3 className="text-4xl font-bold">Guest Homepage</h3>
@@ -77,6 +79,8 @@ const Guest: React.FC = () => {
 };
 
 const User = ({ session }: { session: Session }) => {
+  const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery();
+  console.log(secretMessage);
   return (
     <main className="container mx-auto py-20 text-center">
       <h3 className="text-4xl font-bold">Authorized User Homepage</h3>
